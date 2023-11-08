@@ -13,7 +13,7 @@ const options = {
       },
     ],
   },
-  apis: ['./server.js'], // Specify the path to your route files
+  apis: ['./server.js'], 
 };
 
 module.exports = options;
