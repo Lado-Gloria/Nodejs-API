@@ -1,6 +1,9 @@
 // Import required packages and modules
 const express = require("express");
 const mongoose = require("mongoose");
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+const swaggerOptions = require('./swaggerOptions');
 const Book = require('./models/bookModels'); // Import the Book model
 const app = express(); // Create an Express application
 const PORT = 3000; // Define the port number
@@ -9,6 +12,8 @@ const PORT = 3000; // Define the port number
 app.use(express.json()); // Parse incoming JSON requests
 
 // Define routes and their corresponding handlers
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+app.use('/books/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get('/', (req, res) => {
   res.send("Hello Node Api");
