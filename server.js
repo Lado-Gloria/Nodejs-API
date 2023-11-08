@@ -9,7 +9,7 @@ const app = express(); // Create an Express application
 const PORT = 3000; // Define the port number
 
 
-app.use(express.json()); // Parse incoming JSON requests
+app.use(express.json()); 
 
 // Define routes and their corresponding handlers
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
